@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./App.css" // imports main css file
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -34,17 +35,21 @@ function App() {
   }
 
   return (
-    <>
-      <h1>The blog goes here</h1>
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      <ul>
-        {posts.map(post => (
-          <li key={post.id}>{post.title}</li>
+    <div className="blog-container">
+      <h1 className="blog-header">Blog Posts</h1>
+      {error && <p className="error-message">Error: {error}</p>}
+      <div className="posts-grid">
+        {posts.map((post) => (
+          <div key={post.id} className="post-card">
+            <h2 className="post-title">{post.title}</h2>
+            <p className="post-body">{post.body}</p>
+          </div>
         ))}
-      </ul>
-    </>
+      </div>
+    </div>
   );
 }
+
 
 export default App;
 
