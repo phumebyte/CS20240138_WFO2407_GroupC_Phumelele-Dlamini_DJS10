@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true); // Update the state of loading before fetching
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("https://jsonplaceholder.typicode.com/posts") // error URL for testing: 'https://invalid-jsonplaceholder.typicode.com/posts'
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch posts");
@@ -32,7 +32,7 @@ function App() {
 
   // Display error message if an error occurs
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>{error}</div>;
   }
 
   return (
